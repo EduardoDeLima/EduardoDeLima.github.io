@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carlos Eduardo de Lima Joaquim - Data Engineer, Python Developer & Machine Learning Researcher at Ministry of Defense, Brazil">
+    <meta name="keywords" content="Data Engineer, Python Developer, Machine Learning, NLP, Carlos Eduardo de Lima Joaquim">
+    <title>Carlos Eduardo de Lima Joaquim | Data Engineer & Python Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2942;
+            --primary-light: #2c4266;
+            --secondary: #c9a227;
+            --secondary-light: #e0b83a;
+            --text: #333333;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --background: #ffffff;
+            --background-alt: #f5f7fa;
+            --border: #e0e0e0;
+            --success: #28a745;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--background);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--secondary);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            border: 5px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+
+        .hero-location {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .hero-location i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-links a:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 162, 39, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-10px) translateX(-50%); }
+            60% { transform: translateY(-5px) translateX(-50%); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--background);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .about-highlights {
+            background: var(--background-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .about-highlights h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .highlight-item span {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--background-alt);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        .timeline-item:first-child .timeline-dot {
+            background: var(--success);
+            box-shadow: 0 0 0 2px var(--success);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-lighter);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content .company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--background);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-card .year {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--background-alt);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--secondary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--background-alt);
+            color: var(--text);
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: var(--background);
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 280px;
+            max-width: 350px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cert-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .cert-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .cert-card h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card .issuer {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .cert-card .year {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Publications Section */
+        .publications {
+            background: var(--background-alt);
+        }
+
+        .pub-list {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pub-item {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .pub-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pub-type {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-item h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pub-venue {
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .pub-link:hover {
+            color: var(--secondary);
+        }
+
+        .pub-link i {
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact .section-header h2 {
+            color: white;
+        }
+
+        .contact .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition);
+            border: 2px solid rgba(255,255,255,0.1);
+            min-width: 280px;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-info span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1424;
+            color: rgba(255,255,255,0.6);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-social a {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            color: var(--secondary);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.75rem 2rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                padding-left: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-item {
+                min-width: auto;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .hero-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">CE<span>LJ</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-avatar">CELJ</div>
+            <h1>Carlos Eduardo de Lima Joaquim</h1>
+            <p class="hero-subtitle">Data Engineer | Python Developer | Machine Learning Researcher</p>
+            <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Federal District, Brazil</p>
+            <div class="hero-links">
+                <a href="https://www.linkedin.com/in/eduardodelima/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/EduardoDeLima" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>About Me</h2>
+                <div class="section-divider"></div>
+                <p>Over 25 years of progressive experience in Brazil's defense and technology sectors</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>
+                        I am a dedicated professional with a career spanning more than two decades in the Brazilian Army and Ministry of Defense. My journey has taken me from foundational roles in network administration and cybersecurity incident response to my current position as a Data Engineer and Python Developer.
+                    </p>
+                    <p>
+                        Holding a Master's degree in Computer Science from the University of Brasília (UnB), with a focus on Natural Language Processing and machine learning applications for document classification, I combine deep technical expertise with practical military and defense domain knowledge.
+                    </p>
+                    <p>
+                        My research interests include machine learning, NLP, sentiment analysis, and data-driven decision making. I am passionate about leveraging technology to solve complex problems and improve operational efficiency in large organizations.
+                    </p>
+                </div>
+                <div class="about-highlights fade-in">
+                    <h3>Key Highlights</h3>
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <span>25+ years in Brazilian Defense sector</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>M.Sc. Computer Science – University of Brasília</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-code"></i>
+                        <span>Data Engineering & Python Development</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning & NLP Research</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Cybersecurity & Information Security</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Published Researcher (LION, RISTI)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Professional Experience</h2>
+                <div class="section-divider"></div>
+                <p>A career of continuous growth within Brazil's defense institutions</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 – Present</span>
+                        <h3>Data Engineer & Python Developer</h3>
+                        <span class="company">Ministry of Defense (Ministério da Defesa)</span>
+                        <p>Member of Project BIEG. Developing data pipelines, machine learning models, and data science solutions to support defense operations and decision-making processes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 – 2025</span>
+                        <h3>Systems Analyst & Java Developer</h3>
+                        <span class="company">Brazilian Army (Exército Brasileiro)</span>
+                        <p>Designed and developed enterprise systems, performed systems analysis, and contributed to software architecture for military administrative applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2016 – 2021</span>
+                        <h3>Information Security Analyst & Senior DevOps Engineer</h3>
+                        <span class="company">Brazilian Army</span>
+                        <p>Led DevOps practices, managed CI/CD pipelines, and ensured information security compliance across military IT infrastructure.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2011 – 2016</span>
+                        <h3>Information Security Analyst & Network Manager</h3>
+                        <span class="company">Brazilian Army</span>
+                        <p>Managed network infrastructure, implemented security policies, and oversaw the administration of military communication systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2010 – 2011</span>
+                        <h3>Information Security Analyst & Development Analyst</h3>
+                        <span class="company">Brazilian Army</span>
+                        <p>Conducted security analysis, supported software development initiatives, and contributed to network administration tasks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2000 – 2010</span>
+                        <h3>Network Administrator & CSIRT Member</h3>
+                        <span class="company">Brazilian Army</span>
+                        <p>Started career as a Network Administrator and served as a member of the Computer Security Incident Response Team (CSIRT), building foundational expertise in cybersecurity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Education</h2>
+                <div class="section-divider"></div>
+                <p>Advanced degrees and specializations in computer science and military sciences</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <span class="year">2020 – 2022</span>
+                    <h3>M.Sc. Computer Science</h3>
+                    <p class="institution">University of Brasília (UnB)</p>
+                    <p class="description">Dissertation: "BERT Self-Learning Approach with Limited Labels for Document Classification" – Research on NLP and machine learning for administrative document classification in the Brazilian Army.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <span class="year">2018 – 2019</span>
+                    <h3>Postgraduate – Military Science & Operational Studies</h3>
+                    <p class="institution">School of Officer Improvement (EsAO)</p>
+                    <p class="description">Advanced studies in military science, operational planning, and strategic leadership.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <span class="year">2010 – 2011</span>
+                    <h3>Postgraduate – Complementary Applications in Military Sciences</h3>
+                    <p class="institution">Army Management School (EGA)</p>
+                    <p class="description">Specialization in military sciences applications for organizational management.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <span class="year">2007 – 2009</span>
+                    <h3>Postgraduate – Cryptography & Network Security</h3>
+                    <p class="institution">Fluminense Federal University (UFF)</p>
+                    <p class="description">Advanced studies in cryptography, network security protocols, and secure communications.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <span class="year">2002 – 2005</span>
+                    <h3>B.Sc. Computational Information Systems</h3>
+                    <p class="institution">Federal University of Mato Grosso do Sul (UFMS)</p>
+                    <p class="description">Bachelor's degree in computer science with focus on information systems and software development.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <span class="year">2014</span>
+                    <h3>Cyber Defense Specialization</h3>
+                    <p class="institution">Brazilian Army Cyber Defense Center</p>
+                    <p class="description">Specialized training in cyber defense operations, incident response, and network security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Technical Skills</h2>
+                <div class="section-divider"></div>
+                <p>Expertise across data engineering, software development, and cybersecurity</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">ETL/ELT</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-brain"></i> Machine Learning & NLP</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BERT</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Sentiment Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-server"></i> DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Oracle Cloud</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Information Security</span>
+                        <span class="skill-tag">Cryptography</span>
+                        <span class="skill-tag">Incident Response</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">CSIRT</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">Google Colab</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Certifications</h2>
+                <div class="section-divider"></div>
+                <p>Professional certifications and credentials</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3>
+                    <p class="issuer">Oracle University</p>
+                    <p class="year">2025</p>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cyber Defense Specialist</h3>
+                    <p class="issuer">Brazilian Army Cyber Defense Center</p>
+                    <p class="year">2014</p>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Cryptography & Network Security</h3>
+                    <p class="issuer">Fluminense Federal University (UFF)</p>
+                    <p class="year">2009</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Publications & Articles</h2>
+                <div class="section-divider"></div>
+                <p>Academic research and technical articles</p>
+            </div>
+            <div class="pub-list">
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Article</span>
+                    <h3>5 Game-Changing Tips for Debugging Jupyter Notebooks</h3>
+                    <p class="pub-authors">Carlos Eduardo de Lima Joaquim</p>
+                    <p class="pub-venue">LinkedIn Article, October 2025</p>
+                    <a href="https://www.linkedin.com/pulse/5-game-changing-tips-debugging-jupyter-notebooks-de-lima-joaquim-agcjf" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        Read Article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Conference Paper</span>
+                    <h3>BERT Self-Learning Approach with Limited Labels for Document Classification</h3>
+                    <p class="pub-authors">C. E. L. Joaquim, T. P. Faleinos</p>
+                    <p class="pub-venue">Learning and Intelligent Optimization (LION 16), 2023</p>
+                    <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        View on Google Scholar <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Dissertation</span>
+                    <h3>BERT Self-Learning Approach with Limited Labels for Document Classification of a Brazilian Army's Administrative Documentary Set</h3>
+                    <p class="pub-authors">Carlos Eduardo de Lima Joaquim</p>
+                    <p class="pub-venue">University of Brasília (UnB), 2022</p>
+                    <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        View on Google Scholar <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Journal Article</span>
+                    <h3>Análise de sentimentos da população brasileira durante a pandemia de COVID-19 como ferramenta de exploração da expressão psicossocial no espaço cibernético</h3>
+                    <p class="pub-authors">C. E. de Lima Joaquim, C. H. M. Barbosa, E. Ishikawa</p>
+                    <p class="pub-venue">Revista Ibérica de Sistemas e Tecnologias de Informação, 2021</p>
+                    <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        View on Google Scholar <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Journal Article</span>
+                    <h3>Educação de adultos no sistema de ensino regular à distância do Exército Brasileiro</h3>
+                    <p class="pub-authors">Carlos Eduardo de Lima Joaquim</p>
+                    <p class="pub-venue">2018</p>
+                    <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        View on Google Scholar <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="pub-item fade-in">
+                    <span class="pub-type">Journal Article</span>
+                    <h3>Sistema integrado de avaliação escolar: Aprimoramento e implantação dos módulos administrativo, afetivo e cognitivo</h3>
+                    <p class="pub-authors">A. Pinheiro, A. S. de Aguiar, C. R. R. Machado, C. E. de Lima Joaquim, et al.</p>
+                    <p class="pub-venue">RICAM Revista Interdisciplinar de Ciências Aplicadas à Atividade Militar, 2011</p>
+                    <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        View on Google Scholar <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get in Touch</h2>
+                <div class="section-divider"></div>
+                <p>Feel free to connect with me through any of the channels below</p>
+            </div>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/eduardodelima/" target="_blank" rel="noopener noreferrer" class="contact-item fade-in">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="contact-info">
+                        <h3>LinkedIn</h3>
+                        <span>linkedin.com/in/eduardodelima</span>
+                    </div>
+                </a>
+                <a href="https://github.com/EduardoDeLima" target="_blank" rel="noopener noreferrer" class="contact-item fade-in">
+                    <i class="fab fa-github"></i>
+                    <div class="contact-info">
+                        <h3>GitHub</h3>
+                        <span>github.com/EduardoDeLima</span>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" class="contact-item fade-in">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="contact-info">
+                        <h3>Google Scholar</h3>
+                        <span>Academic Publications & Research</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/eduardodelima/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/EduardoDeLima" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com.br/citations?user=bkzHrXcAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Carlos Eduardo de Lima Joaquim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
